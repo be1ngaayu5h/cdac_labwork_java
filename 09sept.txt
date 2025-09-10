@@ -1,0 +1,223 @@
+prog 1
+package sept9;
+
+public class first {
+
+	public static void main(String[] args) {
+		System.out.println("Hare Krishna!");
+		System.out.println("Aayush here");
+	}
+}
+-------------------------------------------------------------------------------------------------------
+prog 2
+//addition of 2 int
+package sept9;
+public class first {
+
+	public static void main(String[] args) {
+		int a = 10 , b = 12 , c;
+		c = a + b;
+		System.out.println("C = " + c);
+	}
+}
+--------------------------------------------------------------------------------------------------
+prog 3
+//addition of 2 int
+package sept9;
+import java.util.Scanner;
+public class first {
+
+	public static void main(String[] args) {
+		int a , b , c;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter value for A->");
+		a=sc.nextInt();
+		System.out.println("Enter value for B->");
+		b=sc.nextInt();
+		c = a + b;
+		System.out.println("Addition of A and B is = " + c);
+	}
+}
+---------------------------------------------------------------------------------------
+prog 4
+//scan 2 number and print square and cube of that number
+package sept9;
+import java.util.Scanner;
+public class first {
+
+	public static void main(String[] args) {
+		int a;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter value for A->");
+		a=sc.nextInt();
+		System.out.println("Square of A is = " + a*a);
+		System.out.println("Cube of A is = " + a*a*a);
+	}
+}
+------------------------------------------------------------------------------------------------
+//program to implement the bank FD formula 
+// SI = p*r*n/100
+//ammount = p+si
+package sept9;
+import java.util.Scanner;
+public class first {
+
+	public static void main(String[] args) {
+		int p , n;
+		float r , si , amt;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("---- FD calculator ----");
+		System.out.println();
+		System.out.println("Enter Pricipal Ammount:");
+		p=sc.nextInt();
+		System.out.println("Enter Number of years:");
+		n=sc.nextInt();
+		System.out.println("Enter Rate of intrest:");
+		r=sc.nextInt();
+		si = p*r*n/100;
+		amt = p+si;
+		System.out.println("Intrest you get is: "+si);
+		System.out.println("Total ammount you get is: "+amt);
+	}
+}
+--------------------------------------------------------------------------------------
+//program to scan product name , qty , amt  and calculate total ammount add 10% discount and then net ammount
+package sept9;
+import java.util.Scanner;
+public class first {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String name;
+		int qty ;
+		float amt , total , net ,dis;
+		System.out.println("Enter name of Product: ");
+		name =  sc.next();
+		System.out.println("Enter Quantity: ");
+		qty =  sc.nextInt();
+		System.out.println("Enter Price of Product: ");
+		amt =  sc.nextInt();
+		total = qty*amt;
+		dis = total*10/100;
+		net = total - dis;
+		System.out.println("You are buying "+ name );
+		System.out.println("Total is: " + total);
+		System.out.println("Grand total after 10% discount is: " + net);
+	}
+}
+-----------------------------------------------------------------------------------------
+/*
+ * check if person is major or senior citizen
+ */
+package sept9;
+import java.util.Scanner;
+public class first {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int age;
+		System.out.println("Enter you age: ");
+		age = sc.nextInt();
+		if (age > 17 && age < 60) {
+			System.out.println("You are an Adult");
+		}else if( age >= 60 && age <= 120 ) {
+			System.out.println("You are a senior citizen");
+		}else if ( age <= 17 && age > 0 ) {
+			System.out.println("You are a Minor Person");
+		}else {
+			System.out.println("Please enter a valid AGE");
+		}
+	}
+}
+-----------------------------------------------------------------------------------------
+/*
+ * check if person is major or senior citizen
+ */
+package sept9;
+import java.util.Scanner;
+public class first {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int a;
+		System.out.println("Enter a number to check: ");
+		a= sc.nextInt();
+		if ( a%2 == 0) {
+			System.out.println("Number is EVEN");
+		}else {
+			System.out.println("Number is ODD");
+		}
+	}
+}
+-------------------------------------------------------------------------------
+/*
+ * write a progrma scan year and print year is leap year or not
+ */
+package sept9;
+import java.util.Scanner;
+public class first {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int year;
+		System.out.println("Enter a number to check: ");
+		year= sc.nextInt();
+		if ( year%4 == 0 && year%400 == 0) {
+			System.out.println("Year is LEAP year");
+		}else {
+			System.out.println("Year is not a LEAP year");
+		}
+	}
+}
+---------------------------------------------------------------------------------------
+/*
+ * check if person is major or senior citizen
+ */
+package sept9;
+import java.util.Scanner;
+public class first {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int a;
+		System.out.println("Enter a Number:");
+		a = sc.nextInt();
+		if ( a>=1000 && a<=2000 ) {
+			System.out.println("Number is between 1000 to 2000");
+		}else if ( a>=2001 && a<=5000 ) {
+			System.out.println("Number is between 2001 to 5000");
+		}else {
+			System.out.println("Number is not in Range of 1000 to 5000");
+		}
+	}
+}
+--------------------------------------------------------------------------------------------------------------------
+/*
+ * scan emp info 
+ * name , id , basic sal
+ * calculate hra 20% , da 50%  and if sal is more than 50000 then 10% bonus
+ */
+package sept9;
+import java.util.Scanner;
+public class first {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int basic, empid;
+		String name;
+		float hra,da,bonus=0,gross;
+		System.out.println("Enter employee id , name and basic sal");
+		empid=sc.nextInt();
+		name=sc.next();
+		basic=sc.nextInt();
+		hra = basic*20/100;
+		da = basic*50/100;
+		if ( basic >=50000) {
+			bonus = basic*10/100;
+		}
+		gross = basic+da+hra+bonus;
+		System.out.println("Your Bonus is "+bonus);
+		System.out.println("Your gross salary is "+gross);
+	}
+}
+---------------------------------------------------------------------------------------------------
