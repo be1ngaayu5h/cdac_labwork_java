@@ -1,0 +1,140 @@
+// take 2  arrays with 1 containing the number of runs each player score 
+// and in 2nd array number of balls faced by same player (array index of both array represent a player)
+// input runs and balls faced by player from user (example: player 0 score 5 runs in 2 balls)
+//display runs score and striker rate of each player in tabular format(\t)
+// calculate team score, highest runs and run scorer
+package sept11_lab;
+
+import java.util.Scanner;
+
+public class Mymain {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int numberOfPlayers = 11;
+        int[] runsScored = new int[numberOfPlayers];
+        int[] ballsFaced = new int[numberOfPlayers];
+
+        for (int i = 0; i < numberOfPlayers; i++) {
+            System.out.print("Enter runs scored by player " + (i + 1) + ": ");
+            runsScored[i] = scanner.nextInt();
+
+            System.out.print("Enter balls faced by player " + (i + 1) + ": ");
+            ballsFaced[i] = scanner.nextInt();
+        }
+
+        System.out.println("\nPlayer\tRuns\tBalls\tStrike Rate");
+
+        int totalRuns = 0;
+        int highestRuns = runsScored[0];
+        int highestScorerIndex = 0;
+
+        for (int i = 0; i < numberOfPlayers; i++) {
+            totalRuns += runsScored[i];
+
+            if (runsScored[i] > highestRuns) {
+                highestRuns = runsScored[i];
+                highestScorerIndex = i;
+            }
+
+            float strikeRate = (ballsFaced[i] == 0) ? 0 : (runsScored[i] * 100f) / ballsFaced[i];
+            System.out.printf("%d\t%d\t%d\t%.2f\n", i + 1, runsScored[i], ballsFaced[i], strikeRate);
+        }
+
+        System.out.println("\nTotal team runs: " + totalRuns);
+        System.out.println("Highest run scorer: Player " + (highestScorerIndex + 1) + " with " + highestRuns + " runs");
+
+        scanner.close();
+    }
+}
+-----------------------------------------------------------------------------------------------------------------
+package sept11_lab;
+import java.util.Scanner;
+
+public class Mymain {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+
+        int digitCount = 0;
+        int alphabetCount = 0;
+        int spaceCount = 0;
+        int symbolCount = 0;
+
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+
+            if (Character.isDigit(ch)) {
+                digitCount++;
+            } else if (Character.isAlphabetic(ch)) {
+                alphabetCount++;
+            } else if (Character.isWhitespace(ch)) {
+                spaceCount++;
+            } else {
+                symbolCount++;
+            }
+        }
+
+        System.out.println("Digits: " + digitCount);
+        System.out.println("Alphabets: " + alphabetCount);
+        System.out.println("Spaces: " + spaceCount);
+        System.out.println("Symbols: " + symbolCount);
+
+        scanner.close();
+    }
+}
+-----------------------------------------------------------------------------------------------
+package sept11_lab;
+import java.util.Scanner;
+
+public class Mymain {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Password Must contain one Capital, one Small ,one number and one symbol");
+        System.out.print("Enter a password: ");
+        String input = scanner.nextLine();
+        boolean flag1=false;
+        boolean flag2=false;
+        boolean flag3=false;
+        boolean flag4=false;
+
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            if (Character.isDigit(ch)) {
+                flag1=true;
+            }
+            if (Character.isUpperCase(ch)) {
+            	flag2=true;
+            }
+            if (Character.isLowerCase(ch)) {
+            	flag3=true;
+            }
+            if ( ch=='!' || ch=='@' || ch=='#' || ch=='$' || ch=='%' || ch=='&' || ch=='*') {
+            	flag4=true;
+            } 
+        }
+
+        if (!flag1) {
+        	System.out.println("Please add a digit in Password");
+        }
+        if (!flag2) {
+        	System.out.println("Please add a UPPER CASE letter in Password");
+        }
+        if (!flag3) {
+        	System.out.println("Please add a LOWER CASE letter in Password");
+        }
+        if (!flag4) {
+        	System.out.println("Please add a Symbol in Password");
+        }
+        if (flag1 && flag2 && flag3 && flag4) {
+        	System.out.println("Your password is valid!");
+        }
+
+        scanner.close();
+    }
+}

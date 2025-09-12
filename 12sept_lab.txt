@@ -1,0 +1,172 @@
+Name: Aayush Pardeshi
+Roll no.: 02
+Assignment (12/09/2025)
+--------------------------------------------------------------------------------------------------------------------------------
+//employee payroll system
+// create a class with data members empid, name ,basic salary
+//member functions input details(setter),calculate sal(basic sal+HRA[20% of basic]+DA[30%+basic]),display(getter)
+//make multiple objects of class and display  salaries
+package sept11_lab;
+import java.util.Scanner;
+public class Mymain {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter number of employees: ");
+        int n = scanner.nextInt();
+        Employee[] employees = new Employee[n];
+
+        for (int i = 0; i < n; i++) {
+            employees[i] = new Employee();
+            System.out.println("Enter details for Employee " + (i + 1));
+            employees[i].inputDetails();
+            employees[i].calculateSalary();
+        }
+
+        System.out.println("\nEmployee Details:");
+        for (int i = 0; i < n; i++) {
+            employees[i].displayDetails();
+        }
+
+        scanner.close();
+    }
+}
+/*************************/
+//Employee.java
+package sept11_lab;
+import java.util.Scanner;
+
+class Employee {
+    int empId;
+    String name;
+    double basicSalary;
+    double totalSalary;
+    Scanner scanner = new Scanner(System.in);
+
+    void inputDetails() { //setter method
+        System.out.print("Enter Employee ID: ");
+        empId = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Enter Name: ");
+        name = scanner.nextLine();
+        System.out.print("Enter Basic Salary: ");
+        basicSalary = scanner.nextDouble();
+    }
+
+    void calculateSalary() {
+        double hra = 0.2 * basicSalary;
+        double da = 0.3 * basicSalary;
+        totalSalary = basicSalary + hra + da;
+    }
+
+    void displayDetails() { //getter mathod
+        System.out.println("Employee ID: " + empId);
+        System.out.println("Name: " + name);
+        System.out.println("Total Salary: " + totalSalary);
+        System.out.println();
+    }
+}
+----------------------------------------------------------------------------------
+//create a train class with data members
+// train no, source , destination, available seats
+//member function bookticket(numseats) - will reduce the available seats
+//display train info()- shows train details 
+//add cancellation functionality 
+package sept11_lab;
+import java.util.Scanner;
+public class Mymain {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        TrainTester t1 = new TrainTester();
+        t1.inputDetails();
+
+        int choice;
+        do {
+            System.out.println("\nMenu:");
+            System.out.println("1. Book Ticket");
+            System.out.println("2. Cancel Ticket");
+            System.out.println("3. Display Train Info");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+
+            switch(choice) {
+                case 1:
+                    System.out.print("Enter number of tickets to book: ");
+                    int bookSeats = scanner.nextInt();
+                    if(t1.bookTicket(bookSeats)) {
+                        System.out.println(bookSeats + " tickets booked successfully.");
+                    } else {
+                        System.out.println("Booking failed. Not enough seats available.");
+                    }
+                    break;
+
+                case 2:
+                    System.out.print("Enter number of tickets to cancel: ");
+                    int cancelSeats = scanner.nextInt();
+                    t1.cancelTicket(cancelSeats);
+                    System.out.println(cancelSeats + " tickets cancelled successfully.");
+                    break;
+
+                case 3:
+                    t1.displayTrainInfo();
+                    break;
+
+                case 4:
+                    System.out.println("Exiting...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice. Try again.");
+            }
+        } while(choice != 4);
+
+        scanner.close();
+    }
+}
+/***********************************************/
+//TrainTester.java
+
+package sept11_lab;
+
+import java.util.Scanner;
+
+class TrainTester {
+    int trainNo;
+    String source;
+    String destination;
+    int availableSeats;
+    Scanner scanner = new Scanner(System.in);
+    void inputDetails() {
+        System.out.print("Enter Train Number: ");
+        trainNo = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Enter Source: ");
+        source = scanner.nextLine();
+        System.out.print("Enter Destination: ");
+        destination = scanner.nextLine();
+        System.out.print("Enter Available Seats: ");
+        availableSeats = scanner.nextInt();
+    }
+
+    boolean bookTicket(int numSeats) {
+        if(numSeats <= availableSeats) {
+            availableSeats -= numSeats;
+            return true;
+        }
+        return false;
+    }
+
+    boolean cancelTicket(int numSeats) {
+        availableSeats += numSeats;
+        return true;
+    }
+
+    void displayTrainInfo() {
+        System.out.println("Train Number: " + trainNo);
+        System.out.println("Source: " + source);
+        System.out.println("Destination: " + destination);
+        System.out.println("Available Seats: " + availableSeats);
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------

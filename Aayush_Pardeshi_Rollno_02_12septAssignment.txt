@@ -1,0 +1,661 @@
+Name: Aayush Pardeshi  
+Roll No: 02  
+Assignment Date: 12/09/2025  
+----------------------------
+
+Q1.
+
+/* Java program to calculate total, average, and grade 
+   based on marks of 5 subjects */
+
+Ans:
+
+import java.util.Scanner;
+
+public class GradingSystem {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int[] marks = new int[5];
+        int total = 0;
+        double average;
+
+        System.out.println("Enter marks for 5 subjects:");
+
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Subject " + (i + 1) + ": ");
+            marks[i] = sc.nextInt();
+            total += marks[i];
+        }
+
+        average = total / 5.0;
+
+        System.out.println("Total Marks: " + total);
+        System.out.println("Average: " + average);
+
+        if (average >= 75) {
+            System.out.println("Grade: Distinction");
+        } else if (average >= 60) {
+            System.out.println("Grade: First Class");
+        } else if (average >= 55) {
+            System.out.println("Grade: Second Class");
+        } else if (average < 35) {
+            System.out.println("Grade: Fail");
+        } else {
+            System.out.println("Grade: Pass");
+        }
+
+        sc.close();
+    }
+}
+----------------------------
+
+Q2.
+
+/* Java program to find the sum of digits of a number using for loop
+   Example: input = 123 → output = 6 */
+
+Ans:
+
+import java.util.Scanner;
+
+public class SumOfDigits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        int sum = 0;
+
+        for (; num != 0; num /= 10) {
+            sum += num % 10;
+        }
+
+        System.out.println("Sum of digits: " + sum);
+        
+        sc.close();
+    }
+}
+----------------------------
+
+Q3.
+
+/* Java program to print the pattern:
+   *****
+   *****
+   ***** */
+
+Ans:
+
+public class StarPattern {
+    public static void main(String[] args) {
+        for (int i = 0; i < 3; i++) {           // 3 rows
+            for (int j = 0; j < 5; j++) {       // 5 stars in each row
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+----------------------------
+
+Q4.
+
+/* Java program to print left-aligned right-angled triangle pattern with 5 rows
+   Pattern:
+   *
+   **
+   ***
+   ****
+   ***** */
+
+Ans:
+
+public class LeftTrianglePattern {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 5; i++) {         // rows
+            for (int j = 1; j <= i; j++) {     // stars in each row = row number
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+----------------------------
+
+Q5.
+
+/* Java program to print left-aligned right-angled triangle upside down with 5 rows
+   Pattern:
+   *****
+   ****
+   ***
+   **
+   * */
+
+Ans:
+
+public class LeftTriangleUpsideDown {
+    public static void main(String[] args) {
+        for (int i = 5; i >= 1; i--) {         // rows decreasing from 5 to 1
+            for (int j = 1; j <= i; j++) {     // stars in each row = current row number
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+----------------------------
+
+Q6.
+
+/* Java program to print both left-aligned right-angled triangle patterns:
+   1) Increasing stars (5 rows)
+   2) Decreasing stars (5 rows)
+   
+   Pattern:
+   *
+   **
+   ***
+   ****
+   *****
+   *****
+   ****
+   ***
+   **
+   * */
+
+Ans:
+
+public class CombinedTriangles {
+    public static void main(String[] args) {
+        // Increasing triangle
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        // Decreasing triangle
+        for (int i = 5; i >= 1; i--) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+----------------------------
+
+Q7.
+
+/* Java program to print right-aligned right-angled triangle pattern with 5 rows
+   Pattern:
+       *
+      **
+     ***
+    ****
+   ***** */
+
+Ans:
+
+public class RightAlignedTriangle {
+    public static void main(String[] args) {
+        int rows = 5;
+
+        for (int i = 1; i <= rows; i++) {
+            // Print spaces
+            for (int j = rows - i; j > 0; j--) {
+                System.out.print(" ");
+            }
+            // Print stars
+            for (int k = 1; k <= i; k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+----------------------------
+
+Q8.
+
+/* Java program to print a pyramid pattern with 5 rows
+   Pattern:
+       *
+      ***
+     *****
+    *******
+   ********* */
+
+Ans:
+
+public class PyramidPattern {
+    public static void main(String[] args) {
+        int rows = 5;
+
+        for (int i = 1; i <= rows; i++) {
+            // Print spaces
+            for (int j = rows - i; j > 0; j--) {
+                System.out.print(" ");
+            }
+            // Print stars (2*i - 1 stars)
+            for (int k = 1; k <= 2 * i - 1; k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+----------------------------
+
+Q9.
+
+/* Java program to print right-aligned upside-down right-angled triangle pattern with 5 rows
+   Pattern:
+   *****
+    ****
+     ***
+      **
+       * */
+
+Ans:
+
+public class RightAlignedUpsideDownTriangle {
+    public static void main(String[] args) {
+        int rows = 5;
+
+        for (int i = rows; i >= 1; i--) {
+            // Print spaces
+            for (int j = 0; j < rows - i; j++) {
+                System.out.print(" ");
+            }
+            // Print stars
+            for (int k = 1; k <= i; k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+----------------------------
+
+Q10.
+
+/* Java program to print upside-down pyramid pattern with 6 rows
+   Pattern:
+   ***********
+    *********
+     *******
+      *****
+       ***
+        *  */
+
+Ans:
+
+public class UpsideDownPyramid {
+    public static void main(String[] args) {
+        int rows = 6;
+
+        for (int i = rows; i >= 1; i--) {
+            // Print spaces
+            for (int j = 0; j < rows - i; j++) {
+                System.out.print(" ");
+            }
+            // Print stars (2*i - 1 stars)
+            for (int k = 1; k <= 2 * i - 1; k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+----------------------------
+
+Q11.
+
+/* Java program to print a diamond pattern with 5 stars in the middle row
+   Pattern:
+     *
+    ***
+   *****
+    ***
+     * */
+
+Ans:
+
+public class DiamondPattern {
+    public static void main(String[] args) {
+        int rows = 3;  // half diamond (middle row stars = 2*rows -1)
+
+        // Upper half including middle row
+        for (int i = 1; i <= rows; i++) {
+            for (int j = rows - i; j > 0; j--) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= 2 * i - 1; k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        // Lower half
+        for (int i = rows - 1; i >= 1; i--) {
+            for (int j = rows - i; j > 0; j--) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= 2 * i - 1; k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+----------------------------
+
+Q12.
+
+/* Java program to print center-aligned diamond pattern with stars separated by spaces
+   Pattern:
+       *
+      * *
+     * * *
+    * * * *
+   * * * * *
+    * * * *
+     * * *
+      * *
+       * */
+
+Ans:
+
+public class DiamondPatternWithSpaces {
+    public static void main(String[] args) {
+        int n = 5;
+
+        // Upper half including middle row
+        for (int i = 1; i <= n; i++) {
+            // Print leading spaces
+            for (int j = n - i; j > 0; j--) {
+                System.out.print(" ");
+            }
+            // Print stars with spaces
+            for (int k = 1; k <= i; k++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+
+        // Lower half
+        for (int i = n - 1; i >= 1; i--) {
+            // Print leading spaces
+            for (int j = n - i; j > 0; j--) {
+                System.out.print(" ");
+            }
+            // Print stars with spaces
+            for (int k = 1; k <= i; k++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+----------------------------
+Q13.
+
+/* Java program to define a 3x3 array, insert value 5 at a specific position,
+   and print the array */
+
+Ans:
+
+public class ArrayInsert {
+    public static void main(String[] args) {
+        int[][] arr = new int[3][3];  // 3x3 array initialized with 0s
+
+        // Insert value 5 at position [1][2] (2nd row, 3rd column)
+        arr[1][2] = 5;
+
+        // Print the array
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+----------------------------
+
+Q14.
+
+/* Java program for cinema hall seat booking system using 3x3 2D array
+   0 = empty seat, 1 = booked seat
+
+   Menu:
+   1) Book Seat
+   2) Cancel Seat
+   3) Show Seating
+   4) Exit */
+
+import java.util.Scanner;
+
+public class CinemaSeatBooking {
+    public static void main(String[] args) {
+        int[][] seats = new int[3][3]; // all seats empty initially (0)
+        Scanner sc = new Scanner(System.in);
+        int choice;
+        
+        while (true) {
+            System.out.println("\nMenu:");
+            System.out.println("1. Book Seat");
+            System.out.println("2. Cancel Seat");
+            System.out.println("3. Show Seating");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+            
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter row (1-3): ");
+                    int bookRow = sc.nextInt() - 1;
+                    System.out.print("Enter seat (1-3): ");
+                    int bookSeat = sc.nextInt() - 1;
+                    
+                    if (bookRow >= 0 && bookRow < 3 && bookSeat >= 0 && bookSeat < 3) {
+                        if (seats[bookRow][bookSeat] == 0) {
+                            seats[bookRow][bookSeat] = 1;
+                            System.out.println("Seat booked successfully.");
+                        } else {
+                            System.out.println("Error: Seat already booked.");
+                        }
+                    } else {
+                        System.out.println("Invalid row or seat number.");
+                    }
+                    break;
+                
+                case 2:
+                    System.out.print("Enter row (1-3): ");
+                    int cancelRow = sc.nextInt() - 1;
+                    System.out.print("Enter seat (1-3): ");
+                    int cancelSeat = sc.nextInt() - 1;
+                    
+                    if (cancelRow >= 0 && cancelRow < 3 && cancelSeat >= 0 && cancelSeat < 3) {
+                        if (seats[cancelRow][cancelSeat] == 1) {
+                            seats[cancelRow][cancelSeat] = 0;
+                            System.out.println("Seat cancellation successful.");
+                        } else {
+                            System.out.println("Error: Seat is not booked.");
+                        }
+                    } else {
+                        System.out.println("Invalid row or seat number.");
+                    }
+                    break;
+                
+                case 3:
+                    System.out.println("Seating arrangement (0=empty, 1=booked):");
+                    for (int i = 0; i < 3; i++) {
+                        for (int j = 0; j < 3; j++) {
+                            System.out.print(seats[i][j] + " ");
+                        }
+                        System.out.println();
+                    }
+                    break;
+                
+                case 4:
+                    System.out.println("Exiting program.");
+                    sc.close();
+                    return;
+                
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
+}
+----------------------------
+
+Q15.
+
+/* Java program to track cricket team performance (max 11 players).
+   Input runs and balls faced for each player.
+   Calculate and display total runs, highest score, player number with highest score,
+   and display scorecard with runs and strike rate for each player. */
+
+import java.util.Scanner;
+
+public class CricketScoreTracker {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int maxPlayers = 11;
+
+        int[] runs = new int[maxPlayers];
+        int[] balls = new int[maxPlayers];
+
+        System.out.println("Enter runs and balls faced for each player:");
+
+        for (int i = 0; i < maxPlayers; i++) {
+            System.out.print("Player " + (i + 1) + " runs: ");
+            runs[i] = sc.nextInt();
+
+            System.out.print("Player " + (i + 1) + " balls faced: ");
+            balls[i] = sc.nextInt();
+        }
+
+        int totalRuns = 0;
+        int highestScore = 0;
+        int highestScorer = -1;
+
+        for (int i = 0; i < maxPlayers; i++) {
+            totalRuns += runs[i];
+            if (runs[i] > highestScore) {
+                highestScore = runs[i];
+                highestScorer = i + 1;  // player number (1-based)
+            }
+        }
+
+        System.out.println("\nTotal runs scored by the team: " + totalRuns);
+        System.out.println("Highest individual score: " + highestScore);
+        System.out.println("Player number with highest score: " + highestScorer);
+
+        System.out.println("\nScorecard:");
+        System.out.println("Player\tRuns\tBalls\tStrike Rate");
+
+        for (int i = 0; i < maxPlayers; i++) {
+            double strikeRate = (balls[i] == 0) ? 0 : ((double) runs[i] / balls[i]) * 100;
+            System.out.printf("%d\t%d\t%d\t%.2f\n", (i + 1), runs[i], balls[i], strikeRate);
+        }
+
+        sc.close();
+    }
+}
+----------------------------
+
+Q16.
+
+/* Java program to count number of digits, alphabets, and special characters in a string */
+
+import java.util.Scanner;
+
+public class CountCharacters {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
+
+        int digits = 0, alphabets = 0, specialChars = 0;
+
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+
+            if (Character.isDigit(ch)) {
+                digits++;
+            } else if (Character.isAlphabetic(ch)) {
+                alphabets++;
+            } else {
+                specialChars++;
+            }
+        }
+
+        System.out.println("Digits: " + digits);
+        System.out.println("Alphabets: " + alphabets);
+        System.out.println("Special characters: " + specialChars);
+
+        sc.close();
+    }
+}
+----------------------------
+
+Q17.
+
+/* Java program to check validity of passwords input by users based on:
+   - At least 1 lowercase letter [a-z]
+   - At least 1 uppercase letter [A-Z]
+   - At least 1 number [0-9]
+   - At least 1 special character from [$#@]
+   - Length between 6 and 16 characters */
+
+import java.util.Scanner;
+
+public class PasswordValidator {
+    public static boolean isValidPassword(String password) {
+        if (password.length() < 6 || password.length() > 16) {
+            return false;
+        }
+
+        boolean hasLower = false, hasUpper = false, hasDigit = false, hasSpecial = false;
+
+        for (int i = 0; i < password.length(); i++) {
+            char ch = password.charAt(i);
+
+            if (ch >= 'a' && ch <= 'z') {
+                hasLower = true;
+            } else if (ch >= 'A' && ch <= 'Z') {
+                hasUpper = true;
+            } else if (ch >= '0' && ch <= '9') {
+                hasDigit = true;
+            } else if (ch == '$' || ch == '#' || ch == '@') {
+                hasSpecial = true;
+            }
+        }
+
+        return hasLower && hasUpper && hasDigit && hasSpecial;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter password to validate: ");
+        String password = sc.nextLine();
+
+        if (isValidPassword(password)) {
+            System.out.println("Password is valid.");
+        } else {
+            System.out.println("Password is invalid.");
+        }
+
+        sc.close();
+    }
+}
+----------------------------
